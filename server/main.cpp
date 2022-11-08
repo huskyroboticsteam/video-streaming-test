@@ -1,15 +1,38 @@
 #include <iostream>
+#include <nlohmann/json.hpp>
 #include "include/network/websocket/WebSocketServer.h"
 
 int main() {
-  net::websocket::SingleClientWSServer* server = new net::websocket::SingleClientWSServer("test server", 3001);
-  server->start();
-  int n = -1;
-  while (true) {
-    if (n == 1) break;
-    std::cout << "1 to stop" << std::endl;
-    std::cin >> n;
+  bool clientConnected = false;
+  net::websocket::SingleClientWSServer server("test", 3001);
+  std::unique_ptr<net::websocket::WebSocketProtocol> protocol = std::make_unique<net::websocket::WebSocketProtocol>("/videostream");
+  protocol->addConnectionHandler([&]() {
+    // client connects, signal that
+    clientConnected = true;
+  });
+  protocol->addDisconnectionHandler([&]() {
+    clientConnected = false;
+    // client disocnnects, signal that
+  });
+  server.addProtocol(std::move(protocol));
+  server.start();
+  while(!clientConnected) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
-  server->stop();
+
+  // wait for signal that client has conected
+
+  while (true) {
+    if (clientConnected) {
+      nlohmann::json json_data = nlohmann::json::parse(R"(
+        {
+          "data": "base64string"
+        }
+      )");
+      server.sendJSON("/videostream", json_data);
+    }
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  server.stop();
   return 0;
 }

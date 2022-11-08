@@ -184,8 +184,16 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/bits/ostream.tcc \
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
-  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketServer.h \
-  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketProtocol.h \
+  /usr/include/nlohmann/json.hpp \
+  /usr/include/c++/12/algorithm \
+  /usr/include/c++/12/bits/stl_algo.h \
+  /usr/include/c++/12/bits/algorithmfwd.h \
+  /usr/include/c++/12/bits/stl_heap.h \
+  /usr/include/c++/12/bits/stl_tempbuf.h \
+  /usr/include/c++/12/bits/uniform_int_dist.h \
+  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/cstddef \
   /usr/include/c++/12/functional \
   /usr/include/c++/12/tuple \
   /usr/include/c++/12/bits/uses_allocator.h \
@@ -205,20 +213,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/bits/vector.tcc \
   /usr/include/c++/12/array \
   /usr/include/c++/12/compare \
-  /usr/include/c++/12/bits/stl_algo.h \
-  /usr/include/c++/12/bits/algorithmfwd.h \
-  /usr/include/c++/12/bits/stl_heap.h \
-  /usr/include/c++/12/bits/stl_tempbuf.h \
-  /usr/include/c++/12/bits/uniform_int_dist.h \
-  /usr/include/c++/12/map \
-  /usr/include/c++/12/bits/stl_tree.h \
-  /usr/include/c++/12/bits/stl_map.h \
-  /usr/include/c++/12/bits/stl_multimap.h \
-  /usr/include/nlohmann/json.hpp \
-  /usr/include/c++/12/algorithm \
-  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
-  /usr/include/c++/12/pstl/execution_defs.h \
-  /usr/include/c++/12/cstddef \
   /usr/include/c++/12/iterator \
   /usr/include/c++/12/bits/stream_iterator.h \
   /usr/include/c++/12/memory \
@@ -246,6 +240,10 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/forward_list \
   /usr/include/c++/12/bits/forward_list.h \
   /usr/include/c++/12/bits/forward_list.tcc \
+  /usr/include/c++/12/map \
+  /usr/include/c++/12/bits/stl_tree.h \
+  /usr/include/c++/12/bits/stl_map.h \
+  /usr/include/c++/12/bits/stl_multimap.h \
   /usr/include/c++/12/valarray \
   /usr/include/c++/12/cmath \
   /usr/include/math.h \
@@ -350,6 +348,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/any \
   /usr/include/nlohmann/detail/macro_unscope.hpp \
   /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketServer.h \
+  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketProtocol.h \
   /usr/include/c++/12/optional \
   /usr/include/c++/12/thread \
   /usr/include/c++/12/bits/std_thread.h \
@@ -2181,12 +2181,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/tr1/gamma.tcc:
 
-/usr/include/boost/asio/traits/set_value_free.hpp:
-
-/usr/include/c++/12/limits:
-
-/usr/include/c++/12/bits/specfun.h:
-
 /usr/include/websocketpp/transport/iostream/base.hpp:
 
 /usr/include/c++/12/bits/basic_string.h:
@@ -2253,9 +2247,9 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/bits/cxxabi_forced.h:
 
-/usr/include/boost/config.hpp:
-
 /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketProtocol.h:
+
+/usr/include/boost/config.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
@@ -2288,6 +2282,10 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/execution/impl/bad_executor.ipp:
 
 /usr/include/c++/12/bits/allocator.h:
+
+/usr/include/c++/12/bits/ostream_insert.h:
+
+/usr/include/boost/asio/basic_socket_acceptor.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
@@ -2655,6 +2653,12 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/bits/stl_map.h:
 
+/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketServer.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/math.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
@@ -2690,10 +2694,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/detail/handler_work.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/include/math.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /usr/include/c++/12/bits/exception_ptr.h:
 
@@ -2744,6 +2744,10 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/detail/cstdint.hpp:
 
 /usr/include/c++/12/bits/stl_pair.h:
+
+/usr/include/websocketpp/transport/iostream/connection.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
@@ -2947,15 +2951,41 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/dispatch.hpp:
 
-/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketServer.h:
+/usr/include/nlohmann/json.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/websocketpp/extensions/extension.hpp:
 
-/usr/include/websocketpp/transport/iostream/connection.hpp:
+/usr/include/boost/type_traits/conditional.hpp:
 
-/usr/include/c++/12/bits/ostream_insert.h:
+/usr/include/c++/12/bits/stl_algo.h:
 
-/usr/include/boost/asio/basic_socket_acceptor.hpp:
+/usr/include/boost/asio/posix/basic_descriptor.hpp:
+
+/usr/include/nlohmann/detail/string_concat.hpp:
+
+/usr/include/boost/preprocessor/detail/is_binary.hpp:
+
+/usr/include/boost/asio/detail/reactor_op.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/c++/12/cassert:
+
+/usr/include/boost/asio/detail/reactive_serial_port_service.hpp:
+
+/usr/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/include/c++/12/bits/algorithmfwd.h:
+
+/usr/include/c++/12/bits/stl_heap.h:
+
+/usr/include/c++/12/bits/gslice.h:
+
+/usr/include/c++/12/pstl/glue_algorithm_defs.h:
 
 /usr/include/boost/asio/execution/detail/as_receiver.hpp:
 
@@ -3023,52 +3053,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/compare:
 
-/usr/include/websocketpp/extensions/extension.hpp:
-
-/usr/include/boost/type_traits/conditional.hpp:
-
-/usr/include/c++/12/bits/stl_algo.h:
-
-/usr/include/boost/asio/posix/basic_descriptor.hpp:
-
-/usr/include/nlohmann/detail/string_concat.hpp:
-
-/usr/include/boost/preprocessor/detail/is_binary.hpp:
-
-/usr/include/boost/asio/detail/reactor_op.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-/usr/include/c++/12/cassert:
-
-/usr/include/boost/asio/detail/reactive_serial_port_service.hpp:
-
-/usr/include/boost/config/stdlib/libstdcpp3.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/c++/12/bits/algorithmfwd.h:
-
-/usr/include/c++/12/bits/stl_heap.h:
-
-/usr/include/boost/asio/traits/query_member.hpp:
-
-/usr/include/boost/asio/detail/thread_info_base.hpp:
-
-/usr/include/boost/asio/execution/detail/as_operation.hpp:
-
-/usr/include/c++/12/condition_variable:
-
-/usr/include/c++/12/bits/stl_multimap.h:
-
-/usr/include/nlohmann/json.hpp:
-
-/usr/include/c++/12/bits/gslice.h:
-
-/usr/include/c++/12/pstl/glue_algorithm_defs.h:
-
 /usr/include/nlohmann/json_fwd.hpp:
 
 /usr/include/boost/mpl/aux_/config/compiler.hpp:
@@ -3095,6 +3079,16 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/bits/shared_ptr_atomic.h:
 
+/usr/include/boost/asio/traits/query_member.hpp:
+
+/usr/include/boost/asio/detail/thread_info_base.hpp:
+
+/usr/include/boost/asio/execution/detail/as_operation.hpp:
+
+/usr/include/c++/12/condition_variable:
+
+/usr/include/c++/12/bits/stl_multimap.h:
+
 /usr/include/c++/12/iosfwd:
 
 /usr/include/boost/asio/ip/impl/address.hpp:
@@ -3116,6 +3110,12 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/ip/address_v6.hpp:
 
 /usr/include/boost/asio/traits/query_free.hpp:
+
+/usr/include/c++/12/bits/specfun.h:
+
+/usr/include/boost/asio/traits/set_value_free.hpp:
+
+/usr/include/c++/12/limits:
 
 /usr/include/boost/asio/detail/is_buffer_sequence.hpp:
 
