@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmission_control_interface.a CMakeFiles/mission_control_interface.dir/MissionControlProtocol.cpp.o
+/usr/bin/ranlib libmission_control_interface.a
