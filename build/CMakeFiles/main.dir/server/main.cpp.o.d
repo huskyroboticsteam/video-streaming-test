@@ -281,6 +281,51 @@ CMakeFiles/main.dir/server/main.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/12/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+ /usr/include/opencv4/opencv2/videoio.hpp \
+ /usr/include/opencv4/opencv2/core.hpp \
+ /usr/include/opencv4/opencv2/core/cvdef.h \
+ /usr/include/opencv4/opencv2/core/version.hpp \
+ /usr/include/opencv4/opencv2/core/hal/interface.h \
+ /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/emmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/xmmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/mmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/mm_malloc.h \
+ /usr/include/c++/12/stdlib.h /usr/include/opencv4/opencv2/core/base.hpp \
+ /usr/include/opencv4/opencv2/opencv_modules.hpp \
+ /usr/include/c++/12/climits \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/opencv4/opencv2/core/cvstd.hpp \
+ /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+ /usr/include/opencv4/opencv2/core/neon_utils.hpp \
+ /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
+ /usr/include/opencv4/opencv2/core/check.hpp \
+ /usr/include/opencv4/opencv2/core/traits.hpp \
+ /usr/include/opencv4/opencv2/core/matx.hpp \
+ /usr/include/opencv4/opencv2/core/saturate.hpp \
+ /usr/include/opencv4/opencv2/core/fast_math.hpp \
+ /usr/include/opencv4/opencv2/core/types.hpp /usr/include/c++/12/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/float.h \
+ /usr/include/opencv4/opencv2/core/mat.hpp \
+ /usr/include/opencv4/opencv2/core/bufferpool.hpp \
+ /usr/include/opencv4/opencv2/core/mat.inl.hpp \
+ /usr/include/opencv4/opencv2/core/persistence.hpp \
+ /usr/include/opencv4/opencv2/core/operations.hpp \
+ /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
+ /usr/include/c++/12/complex \
+ /usr/include/opencv4/opencv2/core/utility.hpp /usr/include/c++/12/mutex \
+ /usr/include/c++/12/bits/std_mutex.h \
+ /usr/include/c++/12/bits/unique_lock.h \
+ /usr/include/opencv4/opencv2/core/optim.hpp \
+ /usr/include/opencv4/opencv2/core/ovx.hpp \
+ /usr/include/opencv4/opencv2/core/cvdef.h \
  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketServer.h \
  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/websocket/WebSocketProtocol.h \
  /usr/include/c++/12/optional /usr/include/c++/12/thread \
@@ -292,9 +337,7 @@ CMakeFiles/main.dir/server/main.cpp.o: \
  /usr/include/websocketpp/common/cpp11.hpp \
  /usr/include/websocketpp/common/stdint.hpp \
  /usr/include/websocketpp/concurrency/basic.hpp \
- /usr/include/websocketpp/common/thread.hpp /usr/include/c++/12/mutex \
- /usr/include/c++/12/bits/std_mutex.h \
- /usr/include/c++/12/bits/unique_lock.h \
+ /usr/include/websocketpp/common/thread.hpp \
  /usr/include/c++/12/condition_variable \
  /usr/include/websocketpp/transport/iostream/endpoint.hpp \
  /usr/include/websocketpp/transport/base/endpoint.hpp \
@@ -422,15 +465,6 @@ CMakeFiles/main.dir/server/main.cpp.o: \
  /usr/include/boost/asio/detail/noncopyable.hpp \
  /usr/include/boost/asio/detail/recycling_allocator.hpp \
  /usr/include/boost/asio/detail/thread_context.hpp \
- /usr/include/c++/12/climits \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/boost/asio/detail/call_stack.hpp \
  /usr/include/boost/asio/detail/tss_ptr.hpp \
  /usr/include/boost/asio/detail/keyword_tss_ptr.hpp \
