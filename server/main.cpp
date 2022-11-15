@@ -5,6 +5,7 @@
 #include "include/network/websocket/WebSocketServer.h"
 #include "include/encoding/encoder.hpp"
 using namespace nlohmann;
+using namespace std::chrono_literals;
 // assuming they're the same size
 void matToCharArray(cv::Mat, unsigned char *, int, int);
 
@@ -41,11 +42,11 @@ int main() {
   }
   // wait for signal that client has conected
   bool flag = true;
+  auto sleepUntil = std::chrono::steady_clock::now();
   while (true) {
     if (clientConnected) {
       capture >> frame;
       int frame_size = enc.encode(frame.data, &flag);
-      std::cout << enc.nals[0].i_payload << " " << enc.nals[0].p_payload << std::endl;
       for (auto i = 0; i  < enc.num_nals; i++) {
         json json_data = {
           {"data", std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload)}
@@ -53,7 +54,9 @@ int main() {
         server.sendJSON("/videostream", json_data);
       }
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    sleepUntil += 50ms;
+    std::this_thread::sleep_until(sleepUntil);
+    // std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
   server.stop();
   return 0;

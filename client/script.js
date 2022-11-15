@@ -1,4 +1,4 @@
-var jmixer;
+var jmuxer;
 var socket;
 const socket_url = "ws://localhost:3001/videostream";
 
@@ -12,6 +12,9 @@ function connect() {
                 video: new Uint8Array(data)  // decode from base64
             });
         });
+        socket.addEventListener('error', function(e) {
+            console.log('Socket Error');
+         });
     }
 }
 
@@ -26,6 +29,14 @@ window.onload = () => {
         node: 'player',
         mode: 'video',
         flusingTime: 0,
+        onError: function(data) {
+            console.log('Buffer error encountered', data);
+        },
+        onMissingVideoFrames: function (data) {
+            console.log('Video frames missing', data);
+        },
+        clearBuffer: false,
+        fps: 20,
         /* maxDelay: 0, */
         /* readFpsFromTrack: true, */
         debug: true
