@@ -93,6 +93,7 @@ main_EXTERNAL_OBJECTS =
 main: CMakeFiles/main.dir/server/main.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: server/include/network/libwebsocket_utils.a
+main: server/include/encoding/libencoder.a
 main: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.6.0
 main: /usr/lib/x86_64-linux-gnu/libopencv_alphamat.so.4.6.0
 main: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.6.0

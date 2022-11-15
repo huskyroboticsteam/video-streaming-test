@@ -1281,4 +1281,63 @@ CMakeFiles/main.dir/server/main.cpp.o: \
  /usr/include/websocketpp/processors/hybi13.hpp \
  /usr/include/websocketpp/sha1/sha1.hpp \
  /usr/include/websocketpp/version.hpp \
- /usr/include/websocketpp/impl/endpoint_impl.hpp
+ /usr/include/websocketpp/impl/endpoint_impl.hpp \
+ /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/encoding/encoder.hpp \
+ /usr/include/x264.h /usr/include/x264_config.h \
+ /usr/include/x86_64-linux-gnu/libswscale/swscale.h \
+ /usr/include/x86_64-linux-gnu/libavutil/avutil.h \
+ /usr/include/x86_64-linux-gnu/libavutil/common.h /usr/include/inttypes.h \
+ /usr/include/c++/12/math.h \
+ /usr/include/x86_64-linux-gnu/libavutil/attributes.h \
+ /usr/include/x86_64-linux-gnu/libavutil/macros.h \
+ /usr/include/x86_64-linux-gnu/libavutil/avconfig.h \
+ /usr/include/x86_64-linux-gnu/libavutil/mem.h \
+ /usr/include/x86_64-linux-gnu/libavutil/avutil.h \
+ /usr/include/x86_64-linux-gnu/libavutil/version.h \
+ /usr/include/x86_64-linux-gnu/libavutil/error.h \
+ /usr/include/x86_64-linux-gnu/libavutil/rational.h \
+ /usr/include/x86_64-linux-gnu/libavutil/mathematics.h \
+ /usr/include/x86_64-linux-gnu/libavutil/intfloat.h \
+ /usr/include/x86_64-linux-gnu/libavutil/log.h \
+ /usr/include/x86_64-linux-gnu/libavutil/pixfmt.h \
+ /usr/include/x86_64-linux-gnu/libavutil/frame.h \
+ /usr/include/x86_64-linux-gnu/libavutil/buffer.h \
+ /usr/include/x86_64-linux-gnu/libavutil/channel_layout.h \
+ /usr/include/x86_64-linux-gnu/libavutil/dict.h \
+ /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
+ /usr/include/x86_64-linux-gnu/libavutil/log.h \
+ /usr/include/x86_64-linux-gnu/libavutil/pixfmt.h \
+ /usr/include/x86_64-linux-gnu/libswscale/version_major.h \
+ /usr/include/x86_64-linux-gnu/libswscale/version.h \
+ /usr/include/x86_64-linux-gnu/libavutil/version.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h \
+ /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
+ /usr/include/x86_64-linux-gnu/libavutil/attributes.h \
+ /usr/include/x86_64-linux-gnu/libavutil/buffer.h \
+ /usr/include/x86_64-linux-gnu/libavutil/dict.h \
+ /usr/include/x86_64-linux-gnu/libavutil/rational.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec.h \
+ /usr/include/x86_64-linux-gnu/libavutil/hwcontext.h \
+ /usr/include/x86_64-linux-gnu/libavutil/frame.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec_id.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/version_major.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec_desc.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec_id.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec_par.h \
+ /usr/include/x86_64-linux-gnu/libavutil/channel_layout.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/defs.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/packet.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/version_major.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/version.h \
+ /usr/include/x86_64-linux-gnu/libavformat/avformat.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/codec_par.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/defs.h \
+ /usr/include/x86_64-linux-gnu/libavcodec/packet.h \
+ /usr/include/x86_64-linux-gnu/libavformat/avio.h \
+ /usr/include/x86_64-linux-gnu/libavformat/version_major.h \
+ /usr/include/x86_64-linux-gnu/libavformat/version.h \
+ /usr/include/x86_64-linux-gnu/libavformat/version_major.h \
+ /usr/include/x86_64-linux-gnu/libavformat/avio.h \
+ /usr/include/x86_64-linux-gnu/libavutil/imgutils.h \
+ /usr/include/x86_64-linux-gnu/libavutil/pixdesc.h

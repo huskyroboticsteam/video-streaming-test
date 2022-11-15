@@ -244,6 +244,9 @@ test_SOURCE_DIR:STATIC=/home/kali/Documents/vscode-projects/husky-robotics/video
 //The directory containing a CMake configuration file for websocketpp.
 websocketpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/websocketpp
 
+//The directory containing a CMake configuration file for x264.
+x264_DIR:PATH=x264_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
@@ -351,7 +354,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -394,6 +397,10 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX0X
+COMPILER_SUPPORTS_CXX0X:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX17
+COMPILER_SUPPORTS_CXX17:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: system ][v1.74.0()]
 //Details about finding OpenCV

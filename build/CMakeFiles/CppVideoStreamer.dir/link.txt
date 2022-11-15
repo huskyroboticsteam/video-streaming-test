@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCppVideoStreamer.a CMakeFiles/CppVideoStreamer.dir/server/include/encoding/encoder.cpp.o
+/usr/bin/ranlib libCppVideoStreamer.a

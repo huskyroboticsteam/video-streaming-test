@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.24.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.24.2/CMakeSystem.cmake"
+  "/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/encoding/CMakeLists.txt"
   "/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/network/CMakeLists.txt"
   "/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfigVersion.cmake"
@@ -62,10 +63,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "server/include/network/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "server/include/encoding/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/main.dir/DependInfo.cmake"
   "server/include/network/CMakeFiles/websocket_utils.dir/DependInfo.cmake"
+  "server/include/encoding/CMakeFiles/encoder.dir/DependInfo.cmake"
   )

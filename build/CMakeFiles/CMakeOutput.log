@@ -443,3 +443,37 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX17 succeeded with the following output:
+Change Dir: /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_66a37/fast && gmake[1]: Entering directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_66a37.dir/build.make CMakeFiles/cmTC_66a37.dir/build
+gmake[2]: Entering directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_66a37.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORTS_CXX17  -std=c++11 -o CMakeFiles/cmTC_66a37.dir/src.cxx.o -c /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_66a37
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66a37.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_66a37.dir/src.cxx.o -o cmTC_66a37 
+gmake[2]: Leaving directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX0X succeeded with the following output:
+Change Dir: /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d4aa2/fast && gmake[1]: Entering directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_d4aa2.dir/build.make CMakeFiles/cmTC_d4aa2.dir/build
+gmake[2]: Entering directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d4aa2.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORTS_CXX0X  -std=c++0x -o CMakeFiles/cmTC_d4aa2.dir/src.cxx.o -c /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d4aa2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d4aa2.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_d4aa2.dir/src.cxx.o -o cmTC_d4aa2 
+gmake[2]: Leaving directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory '/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }

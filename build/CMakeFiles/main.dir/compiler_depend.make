@@ -1406,8 +1406,121 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/websocketpp/processors/hybi13.hpp \
   /usr/include/websocketpp/sha1/sha1.hpp \
   /usr/include/websocketpp/version.hpp \
-  /usr/include/websocketpp/impl/endpoint_impl.hpp
+  /usr/include/websocketpp/impl/endpoint_impl.hpp \
+  /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/encoding/encoder.hpp \
+  /usr/include/x264.h \
+  /usr/include/x264_config.h \
+  /usr/include/x86_64-linux-gnu/libswscale/swscale.h \
+  /usr/include/x86_64-linux-gnu/libavutil/avutil.h \
+  /usr/include/x86_64-linux-gnu/libavutil/common.h \
+  /usr/include/inttypes.h \
+  /usr/include/c++/12/math.h \
+  /usr/include/x86_64-linux-gnu/libavutil/attributes.h \
+  /usr/include/x86_64-linux-gnu/libavutil/macros.h \
+  /usr/include/x86_64-linux-gnu/libavutil/avconfig.h \
+  /usr/include/x86_64-linux-gnu/libavutil/mem.h \
+  /usr/include/x86_64-linux-gnu/libavutil/avutil.h \
+  /usr/include/x86_64-linux-gnu/libavutil/version.h \
+  /usr/include/x86_64-linux-gnu/libavutil/error.h \
+  /usr/include/x86_64-linux-gnu/libavutil/rational.h \
+  /usr/include/x86_64-linux-gnu/libavutil/mathematics.h \
+  /usr/include/x86_64-linux-gnu/libavutil/intfloat.h \
+  /usr/include/x86_64-linux-gnu/libavutil/log.h \
+  /usr/include/x86_64-linux-gnu/libavutil/pixfmt.h \
+  /usr/include/x86_64-linux-gnu/libavutil/frame.h \
+  /usr/include/x86_64-linux-gnu/libavutil/buffer.h \
+  /usr/include/x86_64-linux-gnu/libavutil/channel_layout.h \
+  /usr/include/x86_64-linux-gnu/libavutil/dict.h \
+  /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
+  /usr/include/x86_64-linux-gnu/libavutil/log.h \
+  /usr/include/x86_64-linux-gnu/libavutil/pixfmt.h \
+  /usr/include/x86_64-linux-gnu/libswscale/version_major.h \
+  /usr/include/x86_64-linux-gnu/libswscale/version.h \
+  /usr/include/x86_64-linux-gnu/libavutil/version.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h \
+  /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
+  /usr/include/x86_64-linux-gnu/libavutil/attributes.h \
+  /usr/include/x86_64-linux-gnu/libavutil/buffer.h \
+  /usr/include/x86_64-linux-gnu/libavutil/dict.h \
+  /usr/include/x86_64-linux-gnu/libavutil/rational.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec.h \
+  /usr/include/x86_64-linux-gnu/libavutil/hwcontext.h \
+  /usr/include/x86_64-linux-gnu/libavutil/frame.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec_id.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/version_major.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec_desc.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec_id.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec_par.h \
+  /usr/include/x86_64-linux-gnu/libavutil/channel_layout.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/defs.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/packet.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/version_major.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/version.h \
+  /usr/include/x86_64-linux-gnu/libavformat/avformat.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/codec_par.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/defs.h \
+  /usr/include/x86_64-linux-gnu/libavcodec/packet.h \
+  /usr/include/x86_64-linux-gnu/libavformat/avio.h \
+  /usr/include/x86_64-linux-gnu/libavformat/version_major.h \
+  /usr/include/x86_64-linux-gnu/libavformat/version.h \
+  /usr/include/x86_64-linux-gnu/libavformat/version_major.h \
+  /usr/include/x86_64-linux-gnu/libavformat/avio.h \
+  /usr/include/x86_64-linux-gnu/libavutil/imgutils.h \
+  /usr/include/x86_64-linux-gnu/libavutil/pixdesc.h
 
+
+/usr/include/x86_64-linux-gnu/libavutil/pixdesc.h:
+
+/usr/include/x86_64-linux-gnu/libavformat/version_major.h:
+
+/usr/include/x86_64-linux-gnu/libavformat/avio.h:
+
+/usr/include/x86_64-linux-gnu/libavformat/avformat.h:
+
+/usr/include/x86_64-linux-gnu/libavcodec/version.h:
+
+/usr/include/x86_64-linux-gnu/libavcodec/defs.h:
+
+/usr/include/x86_64-linux-gnu/libavcodec/codec_par.h:
+
+/usr/include/x86_64-linux-gnu/libavcodec/version_major.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/hwcontext.h:
+
+/usr/include/x86_64-linux-gnu/libswscale/version.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/samplefmt.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/frame.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/pixfmt.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/log.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/error.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/version.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/mem.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/avconfig.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/attributes.h:
+
+/usr/include/c++/12/math.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/common.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/avutil.h:
+
+/usr/include/x86_64-linux-gnu/libswscale/swscale.h:
+
+/usr/include/x264.h:
+
+/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/server/include/encoding/encoder.hpp:
 
 /usr/include/websocketpp/impl/endpoint_impl.hpp:
 
@@ -1639,6 +1752,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/predef/architecture/x86/64.h:
 
+/usr/include/x86_64-linux-gnu/libavcodec/codec_id.h:
+
 /usr/include/boost/predef/architecture/x86.h:
 
 /usr/include/boost/predef/architecture/sys390.h:
@@ -1707,6 +1822,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/local/detail/endpoint.hpp:
 
+/usr/include/x86_64-linux-gnu/libavutil/imgutils.h:
+
 /usr/include/boost/asio/is_write_buffered.hpp:
 
 /usr/include/boost/asio/ip/v6_only.hpp:
@@ -1768,6 +1885,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/detail/strand_service.hpp:
 
 /usr/include/boost/asio/generic/stream_protocol.hpp:
+
+/usr/include/x86_64-linux-gnu/libavcodec/avcodec.h:
 
 /usr/include/boost/asio/generic/raw_protocol.hpp:
 
@@ -2111,6 +2230,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/numeric/conversion/detail/sign_mixture.hpp:
 
+/usr/include/x86_64-linux-gnu/libavutil/channel_layout.h:
+
 /usr/include/nlohmann/detail/iterators/internal_iterator.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/epoll.h:
@@ -2206,6 +2327,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/config/platform/linux.hpp:
 
 /usr/include/boost/smart_ptr/detail/sp_convertible.hpp:
+
+/usr/include/x264_config.h:
 
 /usr/include/boost/asio/thread_pool.hpp:
 
@@ -2543,7 +2666,11 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
+/usr/include/x86_64-linux-gnu/libavutil/macros.h:
+
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/x86_64-linux-gnu/libavcodec/codec.h:
 
 /usr/include/boost/asio/traits/set_value_member.hpp:
 
@@ -2828,6 +2955,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/mpl/void_fwd.hpp:
 
 /usr/include/boost/preprocessor/list/fold_left.hpp:
+
+/usr/include/x86_64-linux-gnu/libavcodec/codec_desc.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
@@ -3163,6 +3292,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/execution/bulk_execute.hpp:
 
+/usr/include/x86_64-linux-gnu/libavutil/dict.h:
+
 /usr/include/c++/12/bits/stream_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/signal_ext.h:
@@ -3178,6 +3309,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/x86_64-linux-gnu/libswscale/version_major.h:
 
 /usr/include/c++/12/bits/align.h:
 
@@ -3389,6 +3522,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/detail/chrono_time_traits.hpp:
 
+/usr/include/x86_64-linux-gnu/libavutil/mathematics.h:
+
 /usr/include/boost/date_time/gregorian/greg_year.hpp:
 
 /usr/include/boost/asio/detail/deadline_timer_service.hpp:
@@ -3555,6 +3690,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/detail/dependent_type.hpp:
 
+/usr/include/x86_64-linux-gnu/libavutil/buffer.h:
+
 /usr/include/boost/asio/detail/impl/epoll_reactor.ipp:
 
 /usr/include/boost/system/detail/std_interoperability.hpp:
@@ -3582,6 +3719,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/x86_64-linux-gnu/bits/sigstksz.h:
 
 /usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/usr/include/x86_64-linux-gnu/libavutil/intfloat.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
 
@@ -3887,6 +4026,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/detail/signal_op.hpp:
 
+/usr/include/x86_64-linux-gnu/libavcodec/packet.h:
+
 /usr/include/boost/preprocessor/logical/bitand.hpp:
 
 /usr/include/c++/12/bits/std_abs.h:
@@ -4087,6 +4228,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/chrono:
 
+/usr/include/x86_64-linux-gnu/libavformat/version.h:
+
 /usr/include/boost/asio/read_at.hpp:
 
 /usr/include/boost/asio/basic_serial_port.hpp:
@@ -4100,6 +4243,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/type_traits/is_floating_point.hpp:
 
 /usr/include/boost/asio/impl/defer.hpp:
+
+/usr/include/x86_64-linux-gnu/libavutil/rational.h:
 
 /usr/include/boost/asio/is_read_buffered.hpp:
 

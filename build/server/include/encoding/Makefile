@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/encoding//CMakeFiles/progress.marks
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/include/encoding/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/include/encoding/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,81 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/include/encoding/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/include/encoding/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named main
+# Convenience name for target.
+server/include/encoding/CMakeFiles/encoder.dir/rule:
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/include/encoding/CMakeFiles/encoder.dir/rule
+.PHONY : server/include/encoding/CMakeFiles/encoder.dir/rule
 
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
-
-# fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
-
-#=============================================================================
-# Target rules for targets named websocket_utils
-
-# Build rule for target.
-websocket_utils: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 websocket_utils
-.PHONY : websocket_utils
-
-# fast build rule for target.
-websocket_utils/fast:
-	$(MAKE) $(MAKESILENT) -f server/include/network/CMakeFiles/websocket_utils.dir/build.make server/include/network/CMakeFiles/websocket_utils.dir/build
-.PHONY : websocket_utils/fast
-
-#=============================================================================
-# Target rules for targets named encoder
-
-# Build rule for target.
-encoder: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 encoder
+# Convenience name for target.
+encoder: server/include/encoding/CMakeFiles/encoder.dir/rule
 .PHONY : encoder
 
 # fast build rule for target.
 encoder/fast:
-	$(MAKE) $(MAKESILENT) -f server/include/encoding/CMakeFiles/encoder.dir/build.make server/include/encoding/CMakeFiles/encoder.dir/build
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f server/include/encoding/CMakeFiles/encoder.dir/build.make server/include/encoding/CMakeFiles/encoder.dir/build
 .PHONY : encoder/fast
 
-server/main.o: server/main.cpp.o
-.PHONY : server/main.o
+encoder.o: encoder.cpp.o
+.PHONY : encoder.o
 
 # target to build an object file
-server/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/server/main.cpp.o
-.PHONY : server/main.cpp.o
+encoder.cpp.o:
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f server/include/encoding/CMakeFiles/encoder.dir/build.make server/include/encoding/CMakeFiles/encoder.dir/encoder.cpp.o
+.PHONY : encoder.cpp.o
 
-server/main.i: server/main.cpp.i
-.PHONY : server/main.i
+encoder.i: encoder.cpp.i
+.PHONY : encoder.i
 
 # target to preprocess a source file
-server/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/server/main.cpp.i
-.PHONY : server/main.cpp.i
+encoder.cpp.i:
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f server/include/encoding/CMakeFiles/encoder.dir/build.make server/include/encoding/CMakeFiles/encoder.dir/encoder.cpp.i
+.PHONY : encoder.cpp.i
 
-server/main.s: server/main.cpp.s
-.PHONY : server/main.s
+encoder.s: encoder.cpp.s
+.PHONY : encoder.s
 
 # target to generate assembly for a file
-server/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/server/main.cpp.s
-.PHONY : server/main.cpp.s
+encoder.cpp.s:
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(MAKE) $(MAKESILENT) -f server/include/encoding/CMakeFiles/encoder.dir/build.make server/include/encoding/CMakeFiles/encoder.dir/encoder.cpp.s
+.PHONY : encoder.cpp.s
 
 # Help Target
 help:
@@ -188,11 +163,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... encoder"
-	@echo "... main"
-	@echo "... websocket_utils"
-	@echo "... server/main.o"
-	@echo "... server/main.i"
-	@echo "... server/main.s"
+	@echo "... encoder.o"
+	@echo "... encoder.i"
+	@echo "... encoder.s"
 .PHONY : help
 
 
@@ -204,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

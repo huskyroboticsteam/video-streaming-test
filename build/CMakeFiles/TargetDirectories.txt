@@ -4,3 +4,6 @@
 /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/network/CMakeFiles/websocket_utils.dir
 /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/network/CMakeFiles/edit_cache.dir
 /home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/network/CMakeFiles/rebuild_cache.dir
+/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/encoding/CMakeFiles/encoder.dir
+/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/encoding/CMakeFiles/edit_cache.dir
+/home/kali/Documents/vscode-projects/husky-robotics/video-streaming-test/build/server/include/encoding/CMakeFiles/rebuild_cache.dir

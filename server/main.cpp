@@ -3,21 +3,25 @@
 #include <nlohmann/json.hpp>
 #include <opencv2/videoio.hpp>
 #include "include/network/websocket/WebSocketServer.h"
+#include "include/encoding/encoder.hpp"
+using namespace nlohmann;
+// assuming they're the same size
+void matToCharArray(cv::Mat, unsigned char *, int, int);
 
 int main() {
   cv::VideoCapture capture;  // used to get the test video, could be camera too
+  // capture.open(0);  // open default camera
   if (!capture.open("../server/videos/test1.mp4")) {
     std::cout << "Unable to open video!" << std::endl;
     return -1;
   }
-  int fourcc = cv::VideoWriter::fourcc('H', '2', '6', '4');  // video format,  avc1(mp4/mkv)/H264(mkv)/X264(mkv)
-  double fps = capture.get(cv::CAP_PROP_FPS);
-  cv::Size frameSize(capture.get(cv::CAP_PROP_FRAME_HEIGHT), capture.get(cv::CAP_PROP_FRAME_WIDTH));
+  float fps = static_cast<float>(capture.get(cv::CAP_PROP_FPS));
+  int height = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_HEIGHT));
+  int width = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_WIDTH));
   cv::Mat frame;  // stores frames from capture
-  const std::string name("test.mkv");
-  cv::VideoWriter writer;  // used turn cv::mat into compressed data
-  writer.open(name, fourcc, fps, frameSize);
-  // capture.open(0);  // open default camera
+
+  Encoder enc(width, height, width, height, fps);
+  auto img = reinterpret_cast<unsigned char *>(malloc(width * height * 3));
 
   bool clientConnected = false;
   net::websocket::SingleClientWSServer server("test", 3001);
@@ -36,17 +40,18 @@ int main() {
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   // wait for signal that client has conected
-
+  bool flag = true;
   while (true) {
-    capture >> frame;
-    // do something!!!
     if (clientConnected) {
-      nlohmann::json json_data = nlohmann::json::parse(R"(
-        {
-          "data": ""
-        }
-      )");
-      server.sendJSON("/videostream", json_data);
+      capture >> frame;
+      int frame_size = enc.encode(frame.data, &flag);
+      std::cout << enc.nals[0].i_payload << " " << enc.nals[0].p_payload << std::endl;
+      for (auto i = 0; i  < enc.num_nals; i++) {
+        json json_data = {
+          {"data", std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload)}
+        };
+        server.sendJSON("/videostream", json_data);
+      }
     }
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }

@@ -7,12 +7,10 @@ function connect() {
         socket = new WebSocket(socket_url);
         socket.addEventListener('message', (event) => {
             let { data } = JSON.parse(event.data);
-            console.log(data);
-            /*
+            
             jmuxer.feed({
-                video: new Uint8Array(atob(data))  // decode from base64
+                video: new Uint8Array(data)  // decode from base64
             });
-            */
         });
     }
 }
