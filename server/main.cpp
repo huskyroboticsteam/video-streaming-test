@@ -43,14 +43,21 @@ int main() {
   // wait for signal that client has conected
   bool flag = true;
   auto sleepUntil = std::chrono::steady_clock::now();
+  int total = 0.0;
+  int counts = 0;
   while (true) {
     if (clientConnected) {
       capture >> frame;
+      if (frame.empty()) {
+        break;
+      }
       int frame_size = enc.encode(frame.data, &flag);
       for (auto i = 0; i  < enc.num_nals; i++) {
         json json_data = {
           {"data", std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload)}
         };
+        counts++;
+        total += enc.nals[i].i_payload;
         server.sendJSON("/videostream", json_data);
       }
     }
@@ -59,5 +66,6 @@ int main() {
     // std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
   server.stop();
+  std::cout << "average payload size: " << total / counts << std::endl;
   return 0;
 }
