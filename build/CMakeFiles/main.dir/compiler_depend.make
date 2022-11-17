@@ -184,6 +184,15 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/bits/ostream.tcc \
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
+  /usr/include/c++/12/iterator \
+  /usr/include/c++/12/bits/stream_iterator.h \
+  /usr/include/c++/12/set \
+  /usr/include/c++/12/bits/stl_tree.h \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/bits/node_handle.h \
+  /usr/include/c++/12/bits/stl_set.h \
+  /usr/include/c++/12/bits/stl_multiset.h \
+  /usr/include/c++/12/bits/erase_if.h \
   /usr/include/nlohmann/json.hpp \
   /usr/include/c++/12/algorithm \
   /usr/include/c++/12/bits/stl_algo.h \
@@ -199,13 +208,10 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/bits/uses_allocator.h \
   /usr/include/c++/12/bits/std_function.h \
   /usr/include/c++/12/unordered_map \
-  /usr/include/c++/12/ext/aligned_buffer.h \
   /usr/include/c++/12/bits/hashtable.h \
   /usr/include/c++/12/bits/hashtable_policy.h \
   /usr/include/c++/12/bits/enable_special_members.h \
-  /usr/include/c++/12/bits/node_handle.h \
   /usr/include/c++/12/bits/unordered_map.h \
-  /usr/include/c++/12/bits/erase_if.h \
   /usr/include/c++/12/vector \
   /usr/include/c++/12/bits/stl_uninitialized.h \
   /usr/include/c++/12/bits/stl_vector.h \
@@ -213,8 +219,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/bits/vector.tcc \
   /usr/include/c++/12/array \
   /usr/include/c++/12/compare \
-  /usr/include/c++/12/iterator \
-  /usr/include/c++/12/bits/stream_iterator.h \
   /usr/include/c++/12/memory \
   /usr/include/c++/12/bits/stl_raw_storage_iter.h \
   /usr/include/c++/12/bits/align.h \
@@ -241,7 +245,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
   /usr/include/c++/12/bits/forward_list.h \
   /usr/include/c++/12/bits/forward_list.tcc \
   /usr/include/c++/12/map \
-  /usr/include/c++/12/bits/stl_tree.h \
   /usr/include/c++/12/bits/stl_map.h \
   /usr/include/c++/12/bits/stl_multimap.h \
   /usr/include/c++/12/valarray \
@@ -1898,7 +1901,9 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/impl/dispatch.hpp:
 
-/usr/include/boost/asio/detail/handler_alloc_helpers.hpp:
+/usr/include/boost/asio/dispatch.hpp:
+
+/usr/include/boost/asio/detached.hpp:
 
 /usr/include/boost/asio/execution/any_executor.hpp:
 
@@ -2084,6 +2089,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/websocketpp/config/core.hpp:
 
+/usr/include/boost/asio/detail/handler_alloc_helpers.hpp:
+
 /usr/include/c++/12/optional:
 
 /usr/include/opencv4/opencv2/core/optim.hpp:
@@ -2121,12 +2128,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/execution/detail/void_receiver.hpp:
 
 /usr/include/boost/static_assert.hpp:
-
-/usr/include/boost/preprocessor/config/config.hpp:
-
-/usr/include/boost/asio/detail/executor_function.hpp:
-
-/usr/include/opencv4/opencv2/core/bufferpool.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h:
 
@@ -2390,6 +2391,14 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/tr1/gamma.tcc:
 
+/usr/include/boost/asio/traits/set_value_free.hpp:
+
+/usr/include/c++/12/limits:
+
+/usr/include/c++/12/bits/specfun.h:
+
+/usr/include/c++/12/bits/locale_conv.h:
+
 /usr/include/websocketpp/transport/iostream/base.hpp:
 
 /usr/include/c++/12/bits/basic_string.h:
@@ -2397,12 +2406,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/stdc-predef.h:
 
 /usr/include/c++/12/bits/range_access.h:
-
-/usr/include/boost/asio/posix/basic_stream_descriptor.hpp:
-
-/usr/include/linux/version.h:
-
-/usr/include/c++/12/bits/functexcept.h:
 
 /usr/include/c++/12/bits/refwrap.h:
 
@@ -2427,8 +2430,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/c++/12/tr1/poly_hermite.tcc:
 
 /usr/include/asm-generic/ioctl.h:
-
-/usr/include/boost/type_traits/is_base_of.hpp:
 
 /usr/include/boost/asio.hpp:
 
@@ -2459,6 +2460,12 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
 /usr/include/websocketpp/common/chrono.hpp:
+
+/usr/include/netdb.h:
+
+/usr/include/websocketpp/impl/connection_impl.hpp:
+
+/usr/include/boost/asio/buffered_stream_fwd.hpp:
 
 /usr/include/boost/date_time/posix_time/ptime.hpp:
 
@@ -2652,10 +2659,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/cwchar:
 
-/usr/include/boost/asio/ip/impl/address.hpp:
-
-/usr/include/c++/12/iosfwd:
-
 /usr/include/x86_64-linux-gnu/bits/in.h:
 
 /usr/include/boost/config/detail/select_stdlib_config.hpp:
@@ -2665,6 +2668,10 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/boost/asio/ip/impl/address.hpp:
+
+/usr/include/c++/12/iosfwd:
 
 /usr/include/x86_64-linux-gnu/libavutil/macros.h:
 
@@ -2808,8 +2815,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/impl/compose.hpp:
 
-/usr/include/boost/asio/detail/consuming_buffers.hpp:
-
 /usr/include/boost/asio/detail/impl/null_event.ipp:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
@@ -2913,6 +2918,26 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/asio/detail/handler_work.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/boost/asio/posix/basic_stream_descriptor.hpp:
+
+/usr/include/linux/version.h:
+
+/usr/include/c++/12/bits/functexcept.h:
+
+/usr/include/boost/type_traits/is_base_of.hpp:
+
+/usr/include/c++/12/bits/stl_set.h:
+
+/usr/include/c++/12/bits/unordered_map.h:
+
+/usr/include/boost/smart_ptr/detail/sp_has_gcc_intrinsics.hpp:
+
+/usr/include/boost/predef/hardware/simd/ppc/versions.h:
+
+/usr/include/boost/predef/os/os400.h:
+
+/usr/include/boost/mpl/aux_/config/ttp.hpp:
 
 /usr/include/c++/12/bits/exception_ptr.h:
 
@@ -3066,12 +3091,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
-/usr/include/netdb.h:
-
-/usr/include/websocketpp/impl/connection_impl.hpp:
-
-/usr/include/boost/asio/buffered_stream_fwd.hpp:
-
 /usr/include/boost/asio/high_resolution_timer.hpp:
 
 /usr/include/boost/asio/detail/handler_tracking.hpp:
@@ -3130,14 +3149,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/usr/include/boost/asio/system_context.hpp:
-
-/usr/include/c++/12/any:
-
-/usr/include/c++/12/bits/ios_base.h:
-
-/usr/include/x86_64-linux-gnu/bits/ioctls.h:
-
 /usr/include/c++/12/bits/fs_dir.h:
 
 /usr/include/boost/mpl/aux_/arity.hpp:
@@ -3182,7 +3193,37 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/c++/12/bits/basic_ios.tcc:
 
-/usr/include/boost/asio/dispatch.hpp:
+/usr/include/boost/asio/execution/bulk_execute.hpp:
+
+/usr/include/x86_64-linux-gnu/libavutil/dict.h:
+
+/usr/include/c++/12/bits/stream_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
+
+/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp:
+
+/usr/include/boost/asio/system_context.hpp:
+
+/usr/include/c++/12/any:
+
+/usr/include/x86_64-linux-gnu/bits/ioctls.h:
+
+/usr/include/c++/12/bits/ios_base.h:
+
+/usr/include/c++/12/set:
+
+/usr/include/websocketpp/transport/asio/security/base.hpp:
+
+/usr/include/boost/preprocessor/repetition/enum_params.hpp:
+
+/usr/include/c++/12/unordered_map:
+
+/usr/include/c++/12/bits/valarray_array.h:
+
+/usr/include/c++/12/bits/erase_if.h:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/less.hpp:
 
 /usr/include/nlohmann/json.hpp:
 
@@ -3199,6 +3240,12 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/preprocessor/detail/is_binary.hpp:
 
 /usr/include/boost/asio/detail/reactor_op.hpp:
+
+/usr/include/nlohmann/json_fwd.hpp:
+
+/usr/include/c++/12/ios:
+
+/usr/include/boost/mpl/aux_/config/compiler.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
@@ -3234,26 +3281,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/asio/co_spawn.hpp:
 
-/usr/include/c++/12/bits/unordered_map.h:
-
-/usr/include/boost/smart_ptr/detail/sp_has_gcc_intrinsics.hpp:
-
-/usr/include/boost/predef/hardware/simd/ppc/versions.h:
-
-/usr/include/boost/predef/os/os400.h:
-
-/usr/include/boost/mpl/aux_/config/ttp.hpp:
-
-/usr/include/c++/12/unordered_map:
-
-/usr/include/c++/12/bits/valarray_array.h:
-
-/usr/include/c++/12/bits/erase_if.h:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/less.hpp:
-
-/usr/include/c++/12/bits/locale_conv.h:
-
 /usr/include/boost/asio/connect.hpp:
 
 /usr/include/c++/12/bits/stl_uninitialized.h:
@@ -3283,22 +3310,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/c++/12/valarray:
 
 /usr/include/c++/12/compare:
-
-/usr/include/nlohmann/json_fwd.hpp:
-
-/usr/include/boost/mpl/aux_/config/compiler.hpp:
-
-/usr/include/c++/12/ios:
-
-/usr/include/boost/asio/execution/bulk_execute.hpp:
-
-/usr/include/x86_64-linux-gnu/libavutil/dict.h:
-
-/usr/include/c++/12/bits/stream_iterator.h:
-
-/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
-
-/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp:
 
 /usr/include/c++/12/bits/invoke.h:
 
@@ -3346,11 +3357,13 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/preprocessor/punctuation/comma_if.hpp:
 
-/usr/include/c++/12/bits/specfun.h:
+/usr/include/boost/asio/detail/consuming_buffers.hpp:
 
-/usr/include/boost/asio/traits/set_value_free.hpp:
+/usr/include/boost/preprocessor/config/config.hpp:
 
-/usr/include/c++/12/limits:
+/usr/include/opencv4/opencv2/core/bufferpool.hpp:
+
+/usr/include/boost/asio/detail/executor_function.hpp:
 
 /usr/include/boost/asio/execution/detail/as_receiver.hpp:
 
@@ -4060,6 +4073,10 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/preprocessor/tuple/elem.hpp:
 
+/usr/include/boost/asio/impl/detached.hpp:
+
+/usr/include/boost/preprocessor/variadic/size.hpp:
+
 /usr/include/boost/asio/detail/impl/reactive_serial_port_service.ipp:
 
 /usr/include/boost/asio/ip/unicast.hpp:
@@ -4090,8 +4107,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 
 /usr/include/boost/mpl/and.hpp:
 
-/usr/include/boost/asio/detached.hpp:
-
 /usr/include/boost/mpl/aux_/comparison_op.hpp:
 
 /usr/include/boost/mpl/numeric_cast.hpp:
@@ -4113,10 +4128,6 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/boost/preprocessor/inc.hpp:
 
 /usr/include/boost/preprocessor/array/size.hpp:
-
-/usr/include/websocketpp/transport/asio/security/base.hpp:
-
-/usr/include/boost/preprocessor/repetition/enum_params.hpp:
 
 /usr/include/boost/predef/library/c.h:
 
@@ -4159,6 +4170,8 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:
 
 /usr/include/boost/asio/ip/bad_address_cast.hpp:
+
+/usr/include/c++/12/bits/stl_multiset.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
@@ -4359,7 +4372,3 @@ CMakeFiles/main.dir/server/main.cpp.o: /home/kali/Documents/vscode-projects/husk
 /usr/include/c++/12/ctime:
 
 /usr/include/boost/asio/deadline_timer.hpp:
-
-/usr/include/boost/preprocessor/variadic/size.hpp:
-
-/usr/include/boost/asio/impl/detached.hpp:

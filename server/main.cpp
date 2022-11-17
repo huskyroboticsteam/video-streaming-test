@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
+#include <iterator>
+#include <set>
 #include <nlohmann/json.hpp>
 #include <opencv2/videoio.hpp>
 #include "include/network/websocket/WebSocketServer.h"
 #include "include/encoding/encoder.hpp"
 using namespace nlohmann;
 using namespace std::chrono_literals;
-// assuming they're the same size
-void matToCharArray(cv::Mat, unsigned char *, int, int);
 
 int main() {
   cv::VideoCapture capture;  // used to get the test video, could be camera too
@@ -45,6 +45,7 @@ int main() {
   auto sleepUntil = std::chrono::steady_clock::now();
   int total = 0.0;
   int counts = 0;
+  std::multiset<int> median;
   while (true) {
     if (clientConnected) {
       capture >> frame;
@@ -56,16 +57,19 @@ int main() {
         json json_data = {
           {"data", std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload)}
         };
-        counts++;
-        total += enc.nals[i].i_payload;
         server.sendJSON("/videostream", json_data);
       }
+      total += frame_size;
+      median.insert(frame_size);
+      counts++;
     }
     sleepUntil += 50ms;
     std::this_thread::sleep_until(sleepUntil);
     // std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
   server.stop();
-  std::cout << "average payload size: " << total / counts << std::endl;
+  std::set<int>::iterator it = median.begin();
+  std::advance(it, median.size() / 2);
+  std::cout << "average payload size: " << total / counts << " " << *it << std::endl;
   return 0;
 }
