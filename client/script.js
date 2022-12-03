@@ -35,16 +35,16 @@ window.onload = () => {
         node: 'player',
         mode: 'video',
         flusingTime: 0,
+        maxDelay: 0,
+        clearBuffer: true,
+        fps: 15,
+        /* readFpsFromTrack: true, */
         onError: function(data) {
             console.log('Buffer error encountered', data);
         },
         onMissingVideoFrames: function (data) {
             console.log('Video frames missing', data);
         },
-        clearBuffer: false,
-        fps: 20,
-        /* maxDelay: 0, */
-        /* readFpsFromTrack: true, */
         debug: false
     });
 };

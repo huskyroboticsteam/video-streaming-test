@@ -4,6 +4,7 @@
 #include <set>
 #include <nlohmann/json.hpp>
 #include <opencv2/videoio.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include "include/network/websocket/WebSocketServer.h"
 #include "include/encoding/encoder.hpp"
 using namespace nlohmann;
@@ -11,14 +12,19 @@ using namespace std::chrono_literals;
 
 int main() {
   cv::VideoCapture capture;  // used to get the test video, could be camera too
-  // capture.open(0);  // open default camera
-  if (!capture.open("../server/videos/test1.mp4")) {
+  if (!capture.open(0)) {  // open default camera
+  // if (!capture.open("../server/videos/test1.mp4")) {
     std::cout << "Unable to open video!" << std::endl;
     return -1;
   }
+  // capture.set(cv::CAP_PROP_FRAME_HEIGHT, 640);
+  // capture.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
   float fps = static_cast<float>(capture.get(cv::CAP_PROP_FPS));
-  int height = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_HEIGHT));
-  int width = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_WIDTH));
+  // int width = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_WIDTH));
+  // int height = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_HEIGHT));
+  int width = 640;
+  int height = 480;
+  std::cout << width << " " << height << " " << fps << std::endl;
   cv::Mat frame;  // stores frames from capture
 
   Encoder enc(width, height, width, height, fps);
@@ -52,6 +58,9 @@ int main() {
       if (frame.empty()) {
         break;
       }
+      cv::Mat out;
+      cv::resize(frame, out, cv::Size(width, height), cv::INTER_AREA);  // resize frame
+      frame = out;
       int frame_size = enc.encode(frame.data, &flag);
       for (auto i = 0; i  < enc.num_nals; i++) {
         json json_data = {
