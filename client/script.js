@@ -9,8 +9,8 @@ function connect() {
         socket = new WebSocket(socket_url);
         socket.addEventListener('message', (event) => {
             let payload = event.data;
-            total += new TextEncoder().encode(payload).length;
-            counts++;
+            // total += new TextEncoder().encode(payload).length;
+            // counts++;
             let { data } = JSON.parse(payload);
             
             jmuxer.feed({
@@ -25,9 +25,9 @@ function connect() {
 
 function disconnect() {
     if (socket.readyState === 1) {
-        socket.close(Math.round(total / counts));
+        socket.close();
     }
-    console.log();
+    // console.log(total / counts);
 }
 
 window.onload = () => {
