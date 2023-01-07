@@ -12,8 +12,8 @@ using namespace std::chrono_literals;
 
 int main() {
   cv::VideoCapture capture;  // used to get the test video, could be camera too
-  if (!capture.open(0)) {  // open default camera
-  // if (!capture.open("../server/videos/test1.mp4")) {
+  // if (!capture.open(0)) {  // open default camera
+  if (!capture.open("../server/videos/test1.mp4")) {
     std::cout << "Unable to open video!" << std::endl;
     return -1;
   }

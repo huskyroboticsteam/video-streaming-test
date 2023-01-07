@@ -1,4 +1,5 @@
 var jmuxer;
+var decoder;
 var socket;
 var total = 0;
 var counts = 0;
@@ -12,7 +13,6 @@ function connect() {
             // total += new TextEncoder().encode(payload).length;
             // counts++;
             let { data } = JSON.parse(payload);
-            
             jmuxer.feed({
                 video: new Uint8Array(data)  // decode from base64
             });
@@ -34,10 +34,10 @@ window.onload = () => {
     jmuxer = new JMuxer({
         node: 'player',
         mode: 'video',
-        flusingTime: 0,
+        flusingTime: 1,
         maxDelay: 0,
         clearBuffer: true,
-        fps: 15,
+        fps: 30,
         /* readFpsFromTrack: true, */
         onError: function(data) {
             console.log('Buffer error encountered', data);
