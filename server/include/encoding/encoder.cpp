@@ -23,10 +23,10 @@ Encoder::Encoder(int inW, int inH, int outW, int outH, float fps):
 	prms.i_height = out_yres;
 	prms.i_fps_num = fps;
 	prms.i_fps_den = 1;
-	prms.rc.i_qp_constant = 20;
+	prms.rc.i_qp_constant = 0;
 
 	prms.rc.i_rc_method = X264_RC_CRF;
-	prms.rc.f_rf_constant = 20;
+	prms.rc.f_rf_constant = 0;
 	prms.rc.f_rf_constant_max = 25;
 
 	prms.i_csp = X264_CSP_I420;

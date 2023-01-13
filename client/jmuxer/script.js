@@ -37,8 +37,8 @@ window.onload = () => {
         flusingTime: 1,
         maxDelay: 0,
         clearBuffer: true,
-        fps: 30,
-        /* readFpsFromTrack: true, */
+        // fps: 20,
+        readFpsFromTrack: true,
         onError: function(data) {
             console.log('Buffer error encountered', data);
         },
