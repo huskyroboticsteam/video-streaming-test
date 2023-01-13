@@ -71,6 +71,7 @@ int main() {
       total += frame_size;
       median.insert(frame_size);
       counts++;
+      std::cout << total << std::endl;
     }
     sleepUntil += 40ms;
     std::this_thread::sleep_until(sleepUntil);
