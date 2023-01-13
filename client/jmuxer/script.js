@@ -34,11 +34,11 @@ window.onload = () => {
     jmuxer = new JMuxer({
         node: 'player',
         mode: 'video',
-        flusingTime: 1,
+        flushingTime: 0,
         maxDelay: 0,
         clearBuffer: true,
-        // fps: 20,
-        readFpsFromTrack: true,
+        fps: 30,
+        // readFpsFromTrack: true,
         onError: function(data) {
             console.log('Buffer error encountered', data);
         },

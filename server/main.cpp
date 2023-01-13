@@ -2,14 +2,13 @@
 #include <string>
 #include <iterator>
 #include <set>
+#include <nlohmann/json.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/core/core.hpp>
-#include <nadjieb/mjpeg_streamer.hpp>
-
+#include "include/network/websocket/WebSocketServer.h"
+#include "include/encoding/encoder.hpp"
+using namespace nlohmann;
 using namespace std::chrono_literals;
-using MJPEGStreamer = nadjieb::MJPEGStreamer;
 
 int main() {
   cv::VideoCapture capture;  // used to get the test video, could be camera too
@@ -28,35 +27,58 @@ int main() {
   std::cout << width << " " << height << " " << fps << std::endl;
   cv::Mat frame;  // stores frames from capture
 
+  Encoder enc(width, height, width, height, fps);
+  auto img = reinterpret_cast<unsigned char *>(malloc(width * height * 3));
+
+  bool clientConnected = false;
+  net::websocket::SingleClientWSServer server("test", 3001);
+  std::unique_ptr<net::websocket::WebSocketProtocol> protocol = std::make_unique<net::websocket::WebSocketProtocol>("/videostream");
+  protocol->addConnectionHandler([&]() {
+    // client connects, signal that
+    clientConnected = true;
+  });
+  protocol->addDisconnectionHandler([&]() {
+    clientConnected = false;
+    // client disocnnects, signal that
+  });
+  server.addProtocol(std::move(protocol));
+  server.start();
+  while(!clientConnected) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  // wait for signal that client has conected
+  bool flag = true;
   auto sleepUntil = std::chrono::steady_clock::now();
   int total = 0.0;
   int counts = 0;
   std::multiset<int> median;
-  std::vector<int> params = {cv::IMWRITE_JPEG_QUALITY, 1};
-  MJPEGStreamer streamer;
-  streamer.start(8000);
-  // fetch /shutdown to stop
-  while (streamer.isRunning()) {
-    capture >> frame;
-    if (frame.empty()) {
-      std::cout << "No frame to be captured";
-      // continue;
-      break;
+  while (true) {
+    if (clientConnected) {
+      capture >> frame;
+      if (frame.empty()) {
+        break;
+      }
+      cv::Mat out;
+      cv::resize(frame, out, cv::Size(width, height), cv::INTER_AREA);  // resize frame
+      frame = out;
+      int frame_size = enc.encode(frame.data, &flag);
+      for (auto i = 0; i  < enc.num_nals; i++) {
+        json json_data = {
+          {"data", std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload)}
+        };
+        server.sendJSON("/videostream", json_data);
+      }
+      total += frame_size;
+      median.insert(frame_size);
+      counts++;
     }
-    cv::Mat out;
-    cv::resize(frame, out, cv::Size(width, height), cv::INTER_AREA);  // resize frame
-    frame = out;
-    std::vector<uchar> buff_bgr;
-    cv::imencode(".jpg", frame, buff_bgr, params);
-    std::string data(std::string(buff_bgr.begin(), buff_bgr.end()));
-    streamer.publish("/bgr", data);
-
     sleepUntil += 40ms;
     std::this_thread::sleep_until(sleepUntil);
+    // std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
-  streamer.stop();
+  server.stop();
   std::set<int>::iterator it = median.begin();
   std::advance(it, median.size() / 2);
-  std::cout << "Average payload size: " << total / counts << std::endl << "Median payload size: " << *it << std::endl;
+  std::cout << "average payload size: " << total / counts << " " << *it << std::endl;
   return 0;
 }
