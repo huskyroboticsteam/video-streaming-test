@@ -23,11 +23,11 @@ Encoder::Encoder(int inW, int inH, int outW, int outH, float fps):
 	prms.i_height = out_yres;
 	prms.i_fps_num = fps;
 	prms.i_fps_den = 1;
-	prms.rc.i_qp_constant = 50;  // maybe try 0 if it is lagging?
+	prms.rc.i_qp_constant = 51;  // maybe try 0 if it is lagging, max 51
 
 	prms.rc.i_rc_method = X264_RC_CRF;
-	prms.rc.f_rf_constant = 25;  // maybe try 0 if it is lagging?
-	prms.rc.f_rf_constant_max = 25;  
+	prms.rc.f_rf_constant = 45;  // maybe try 51 if it is lagging?
+	prms.rc.f_rf_constant_max = 45;  
 
 	prms.i_csp = X264_CSP_I420;
 	enc = x264_encoder_open(&prms);

@@ -29,11 +29,20 @@ int main(int argc, char** argv) {
   // int width = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_WIDTH));
   // int height = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_HEIGHT));
   int width = 640;
-  int height = 480;
+  int height = 360;
+
+  /**
+   * 480p: 854x480
+   * 360p: 640x360
+   * 240p: 426x240
+  */
   std::cout << width << " " << height << " " << fps << std::endl;
   cv::Mat frame;  // stores frames from capture
   auto sleepUntil = std::chrono::steady_clock::now();
-
+  std::multiset<int> frame_sizes;
+  long total_frame_sizes = 0;
+  
+  auto start = std::chrono::high_resolution_clock::now();
   if (argc > 1) {  // h264 encoding
     std::cout << "h264 encoding.";
     Encoder enc(width, height, width, height, fps);
@@ -47,6 +56,27 @@ int main(int argc, char** argv) {
       clientConnected = true;
     });
     protocol->addDisconnectionHandler([&]() {
+      // calculate statistics
+      // calculate statistics
+      auto stop = std::chrono::high_resolution_clock::now();
+      auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+      std::set<int>::iterator it = frame_sizes.begin();
+      int largest = *it;
+      std::advance(it, frame_sizes.size() / 2);
+      std::cout << "Average packet size: " + std::to_string(total_frame_sizes / frame_sizes.size()) + " bytes." << std::endl;
+      std::cout << "Median packet size: " + std::to_string(*it) + " bytes." << std::endl;
+      it = frame_sizes.end();
+      int lowest = *it;
+      std::cout << "Largest packet: " << largest << " Smallest packet: " << lowest << std::endl;
+      std::cout << "Packet size range: " + std::to_string(largest - lowest) + " bytes" << std::endl;
+      it = frame_sizes.begin();
+      int total_bytes = 0;
+      while (it != frame_sizes.end()) {
+        total_bytes += *it;
+        it++;
+      }
+      std::cout << "Total bytes: " << total_bytes << std::endl;
+      std::cout << "Average bandwidth (kb/s): " << total_bytes / duration.count() << std::endl;
       clientConnected = false;
       // client disocnnects, signal that
     });
@@ -57,9 +87,9 @@ int main(int argc, char** argv) {
     }
     // wait for signal that client has conected
     bool flag = true;
+    start = std::chrono::high_resolution_clock::now();
     while (true) {
       if (clientConnected) {
-        auto start = std::chrono::high_resolution_clock::now();
         capture >> frame;
         if (frame.empty()) {
           break;
@@ -70,15 +100,21 @@ int main(int argc, char** argv) {
         frame = out;
 
         int frame_size = enc.encode(frame.data, &flag);
+        int size_of = 0;
         for (auto i = 0; i  < enc.num_nals; i++) {
+          std::basic_string<uint8_t> data = std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload);
           json json_data = {
-            {"data", std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload)}
+            {"data", data}
           };
+          total_frame_sizes += data.size();
+          size_of += data.size();
           server.sendJSON("/videostream", json_data);
         }
-        auto stop = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        std::cout << duration.count() << std::endl;
+
+        frame_sizes.insert(size_of);
+        // auto stop = std::chrono::high_resolution_clock::now();
+        // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        // std::cout << duration.count() << std::endl;
       }
       // sleepUntil += 25ms;
       // std::this_thread::sleep_until(sleepUntil);
@@ -88,10 +124,11 @@ int main(int argc, char** argv) {
     std::cout << "MJPEG encoding.";
     std::vector<int> params;
     params.push_back(cv::IMWRITE_JPEG_QUALITY);
-    params.push_back(1);
+    params.push_back(5); // 0-100; 5 is the lowest where text is still visible
     MJPEGStreamer streamer;
     streamer.start(8000);
     // fetch /shutdown to stop
+    start = std::chrono::high_resolution_clock::now();
     while (streamer.isRunning()) {
       capture >> frame;
       if (frame.empty()) {
@@ -105,6 +142,8 @@ int main(int argc, char** argv) {
       std::vector<uchar> buff_bgr;
       cv::imencode(".jpg", frame, buff_bgr, params);
       std::string data(std::string(buff_bgr.begin(), buff_bgr.end()));
+      frame_sizes.insert(data.size());
+      total_frame_sizes += data.size();
       streamer.publish("/bgr", data);
 
       // sleepUntil += 40ms;
@@ -112,5 +151,25 @@ int main(int argc, char** argv) {
     }
     streamer.stop();
   }
+  // calculate statistics
+  auto stop = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+  std::set<int>::iterator it = frame_sizes.begin();
+  int largest = *it;
+  std::advance(it, frame_sizes.size() / 2);
+  std::cout << "Average packet size: " + std::to_string(total_frame_sizes / frame_sizes.size()) + " bytes." << std::endl;
+  std::cout << "Median packet size: " + std::to_string(*it) + " bytes." << std::endl;
+  it = frame_sizes.end();
+  int lowest = *it;
+  std::cout << "Largest packet: " << largest << " Smallest packet: " << lowest << std::endl;
+  std::cout << "Packet size range: " + std::to_string(largest - lowest) + " bytes" << std::endl;
+  it = frame_sizes.begin();
+  int total_bytes = 0;
+  while (it != frame_sizes.end()) {
+    total_bytes += *it;
+    it++;
+  }
+  std::cout << "Total bytes: " << total_bytes << std::endl;
+  std::cout << "Average bandwidth (kb/s): " << total_bytes / duration.count() << std::endl;
   return 0;
 }
