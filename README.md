@@ -13,3 +13,5 @@ https://github.com/cbachhuber/CppVideoStreamer/tree/master/src
 
 JMuxer:
 https://github.com/samirkumardas/jmuxer
+
+Use Chromium for lowest latency
