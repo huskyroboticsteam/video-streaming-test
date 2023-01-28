@@ -8,3 +8,8 @@ cmake ../;
 make;
 sudo make install;
 ```
+H264 Encoder:
+https://github.com/cbachhuber/CppVideoStreamer/tree/master/src
+
+JMuxer:
+https://github.com/samirkumardas/jmuxer
