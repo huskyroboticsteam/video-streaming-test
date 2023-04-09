@@ -9,7 +9,7 @@
 #include <opencv2/core/core.hpp>
 #include <nadjieb/mjpeg_streamer.hpp>
 #include "include/network/websocket/WebSocketServer.h"
-#include "include/encoding/encoder.hpp"
+#include "include/video/H264Encoder.h"
 
 using namespace nlohmann;
 using namespace std::chrono_literals;
@@ -25,11 +25,11 @@ int main(int argc, char** argv) {
   // capture.set(cv::CAP_PROP_FRAME_HEIGHT, 640);
   // capture.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
   capture.set(cv::CAP_PROP_FPS, 30);
-  float fps = static_cast<float>(capture.get(cv::CAP_PROP_FPS));
+  int fps = static_cast<int>(capture.get(cv::CAP_PROP_FPS));
   // int width = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_WIDTH));
   // int height = static_cast<int>(capture.get(cv::CAP_PROP_FRAME_HEIGHT));
-  int width = 640;
-  int height = 360;
+  int width = 426;
+  int height = 240;
 
   /**
    * 480p: 854x480
@@ -43,133 +43,71 @@ int main(int argc, char** argv) {
   long total_frame_sizes = 0;
   
   auto start = std::chrono::high_resolution_clock::now();
-  if (argc > 1) {  // h264 encoding
-    std::cout << "h264 encoding.";
-    Encoder enc(width, height, width, height, fps);
-    auto img = reinterpret_cast<unsigned char *>(malloc(width * height * 3));
 
-    bool clientConnected = false;
-    net::websocket::SingleClientWSServer server("test", 3001);
-    std::unique_ptr<net::websocket::WebSocketProtocol> protocol = std::make_unique<net::websocket::WebSocketProtocol>("/videostream");
-    protocol->addConnectionHandler([&]() {
-      // client connects, signal that
-      clientConnected = true;
-    });
-    protocol->addDisconnectionHandler([&]() {
-      // calculate statistics
-      // calculate statistics
-      auto stop = std::chrono::high_resolution_clock::now();
-      auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-      std::set<int>::iterator it = frame_sizes.begin();
-      int largest = *it;
-      std::advance(it, frame_sizes.size() / 2);
-      std::cout << "Average packet size: " + std::to_string(total_frame_sizes / frame_sizes.size()) + " bytes." << std::endl;
-      std::cout << "Median packet size: " + std::to_string(*it) + " bytes." << std::endl;
-      it = frame_sizes.end();
-      int lowest = *it;
-      std::cout << "Largest packet: " << largest << " Smallest packet: " << lowest << std::endl;
-      std::cout << "Packet size range: " + std::to_string(largest - lowest) + " bytes" << std::endl;
-      it = frame_sizes.begin();
-      int total_bytes = 0;
-      while (it != frame_sizes.end()) {
-        total_bytes += *it;
-        it++;
-      }
-      std::cout << "Total bytes: " << total_bytes << std::endl;
-      std::cout << "Average bandwidth (kb/s): " << total_bytes / duration.count() << std::endl;
-      clientConnected = false;
-      // client disocnnects, signal that
-    });
-    server.addProtocol(std::move(protocol));
-    server.start();
-    while(!clientConnected) {
-      std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
-    // wait for signal that client has conected
-    bool flag = true;
-    start = std::chrono::high_resolution_clock::now();
-    while (true) {
-      if (clientConnected) {
-        capture >> frame;
-        if (frame.empty()) {
-          break;
-        }
+  // h264 encoding
+  std::cout << "h264 encoding.";
+  // Encoder enc(width, height, width, height, fps);
+  video::H264Encoder encoder(fps);
+  auto img = reinterpret_cast<unsigned char *>(malloc(width * height * 3));
 
-        cv::Mat out;
-        cv::resize(frame, out, cv::Size(width, height), cv::INTER_AREA);  // resize frame
-        frame = out;
-
-        int frame_size = enc.encode(frame.data, &flag);
-        int size_of = 0;
-        for (auto i = 0; i  < enc.num_nals; i++) {
-          std::basic_string<uint8_t> data = std::basic_string<uint8_t>(enc.nals[i].p_payload, enc.nals[i].i_payload);
-          json json_data = {
-            {"data", data}
-          };
-          total_frame_sizes += data.size();
-          size_of += data.size();
-          server.sendJSON("/videostream", json_data);
-        }
-
-        frame_sizes.insert(size_of);
-        // auto stop = std::chrono::high_resolution_clock::now();
-        // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        // std::cout << duration.count() << std::endl;
-      }
-      // sleepUntil += 25ms;
-      // std::this_thread::sleep_until(sleepUntil);
-    }
-    server.stop();
-  } else {  // mjpeg encoding
-    std::cout << "MJPEG encoding.";
-    std::vector<int> params;
-    params.push_back(cv::IMWRITE_JPEG_QUALITY);
-    params.push_back(5); // 0-100; 5 is the lowest where text is still visible
-    MJPEGStreamer streamer;
-    streamer.start(8000);
-    // fetch /shutdown to stop
-    start = std::chrono::high_resolution_clock::now();
-    while (streamer.isRunning()) {
+  bool clientConnected = false;
+  std::set<std::string> cameras;
+  net::websocket::SingleClientWSServer server("test", 3001);
+  std::unique_ptr<net::websocket::WebSocketProtocol> protocol = std::make_unique<net::websocket::WebSocketProtocol>("/mission-control");
+  protocol->addConnectionHandler([&]() {
+    // client connects, signal that
+    clientConnected = true;
+  });
+  protocol->addDisconnectionHandler([&]() {
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    clientConnected = false;
+    // client disocnnects, signal that
+  });
+  protocol->addMessageHandler("cameraStreamOpenRequest", [&](json j) {
+    cameras.insert(j["camera"]);
+    std::cout << "new camera: " << j["camera"] << std::endl;
+  });
+  protocol->addMessageHandler("cameraStreamCloseRequest", [&](json j) {
+    cameras.erase(j["camera"]);
+    std::cout << "removing camera: " << j["camera"] << std::endl;
+  });
+  server.addProtocol(std::move(protocol));
+  server.start();
+  while(!clientConnected) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  // wait for signal that client has conected
+  bool flag = true;
+  start = std::chrono::high_resolution_clock::now();
+  while (true) {
+    if (clientConnected) {
       capture >> frame;
       if (frame.empty()) {
-        std::cout << "No frame to be captured";
-        // continue;
         break;
       }
+
       cv::Mat out;
       cv::resize(frame, out, cv::Size(width, height), cv::INTER_AREA);  // resize frame
       frame = out;
-      std::vector<uchar> buff_bgr;
-      cv::imencode(".jpg", frame, buff_bgr, params);
-      std::string data(std::string(buff_bgr.begin(), buff_bgr.end()));
-      frame_sizes.insert(data.size());
-      total_frame_sizes += data.size();
-      streamer.publish("/bgr", data);
 
-      // sleepUntil += 40ms;
-      // std::this_thread::sleep_until(sleepUntil);
+      // convert frame to encoded data and send it
+      auto data_vector = encoder.encode_frame(frame);
+      // std::cout << data_vector.size() << " packets are to be sent." << std::endl;
+      for (auto camera : cameras) {
+        for (auto data_string : data_vector) { // for each encoded peice of data, send it.
+          json json_data;
+          json_data["type"] = "cameraStreamReport";
+          json_data["camera"] = camera;
+          json_data["data"] = data_string;
+          // std::cout << "sending data to client" << std::endl;
+          server.sendJSON("/mission-control", json_data);
+        }
+      }
+      // std::cout << "finished processing frame" << std::endl;
     }
-    streamer.stop();
   }
-  // calculate statistics
-  auto stop = std::chrono::high_resolution_clock::now();
-  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  std::set<int>::iterator it = frame_sizes.begin();
-  int largest = *it;
-  std::advance(it, frame_sizes.size() / 2);
-  std::cout << "Average packet size: " + std::to_string(total_frame_sizes / frame_sizes.size()) + " bytes." << std::endl;
-  std::cout << "Median packet size: " + std::to_string(*it) + " bytes." << std::endl;
-  it = frame_sizes.end();
-  int lowest = *it;
-  std::cout << "Largest packet: " << largest << " Smallest packet: " << lowest << std::endl;
-  std::cout << "Packet size range: " + std::to_string(largest - lowest) + " bytes" << std::endl;
-  it = frame_sizes.begin();
-  int total_bytes = 0;
-  while (it != frame_sizes.end()) {
-    total_bytes += *it;
-    it++;
-  }
-  std::cout << "Total bytes: " << total_bytes << std::endl;
-  std::cout << "Average bandwidth (kb/s): " << total_bytes / duration.count() << std::endl;
+  server.stop();
+  std::cout << "Done streaming.";
   return 0;
 }
